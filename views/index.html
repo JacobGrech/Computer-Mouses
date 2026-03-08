@@ -1,0 +1,101 @@
+<h1>🖱️ Katalog počítačových myší</h1>
+
+<!-- Formulář pro přidání -->
+<div class="card">
+  <h2>➕ Přidat novou myš</h2>
+  <div class="form-grid" id="createForm">
+    <div class="form-group">
+      <label>Značka</label>
+      <input id="f-brand" placeholder="např. Logitech" />
+    </div>
+    <div class="form-group">
+      <label>Model</label>
+      <input id="f-model" placeholder="např. G502 X Plus" />
+    </div>
+    <div class="form-group">
+      <label>Typ</label>
+      <select id="f-type">
+        <option value="">-- vyberte --</option>
+        <option value="Gaming">Gaming</option>
+        <option value="Kancelářská">Kancelářská</option>
+        <option value="Bezdrátová">Bezdrátová</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>DPI (100 – 100 000)</label>
+      <input type="number" id="f-dpi" placeholder="např. 16000" min="100" max="100000" />
+    </div>
+    <div class="form-group">
+      <label>Cena (Kč)</label>
+      <input type="number" id="f-price" placeholder="např. 1990" min="1" />
+    </div>
+  </div>
+  <div class="form-footer">
+    <button class="btn btn-primary" id="createBtn">Přidat myš</button>
+    <p class="msg" id="createMsg"></p>
+  </div>
+</div>
+
+<!-- Filtrace -->
+<div class="card">
+  <h2>🔍 Filtrace</h2>
+  <form method="GET" action="/">
+    <div class="filter-grid">
+      <div class="filter-group">
+        <label>Hledat</label>
+        <input name="search" value="{{searchFilter}}" placeholder="značka nebo model" />
+      </div>
+      <div class="filter-group">
+        <label>Typ</label>
+        <select name="type">
+          <option value="" {{selAll}}>Všechny typy</option>
+          <option value="Gaming" {{selGaming}}>Gaming</option>
+          <option value="Kancelářská" {{selKancelar}}>Kancelářská</option>
+          <option value="Bezdrátová" {{selBezdrat}}>Bezdrátová</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>DPI od</label>
+        <input type="number" name="minDpi" value="{{minDpi}}" placeholder="100" min="100" />
+      </div>
+      <div class="filter-group">
+        <label>DPI do</label>
+        <input type="number" name="maxDpi" value="{{maxDpi}}" placeholder="100 000" />
+      </div>
+      <div class="filter-group">
+        <label>Cena od (Kč)</label>
+        <input type="number" name="minPrice" value="{{minPrice}}" placeholder="0" />
+      </div>
+      <div class="filter-group">
+        <label>Cena do (Kč)</label>
+        <input type="number" name="maxPrice" value="{{maxPrice}}" placeholder="max" />
+      </div>
+      <div class="filter-actions">
+        <button type="submit" class="btn btn-primary">Filtrovat</button>
+        <a href="/" class="btn btn-secondary">Reset</a>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Tabulka -->
+<div class="card">
+  <div class="stat-bar">
+    <h2 style="margin:0">📋 Seznam myší</h2>
+    <span class="stat-pill">{{count}} záznamů</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Značka</th>
+        <th>Model</th>
+        <th>Typ</th>
+        <th>DPI</th>
+        <th>Cena</th>
+        <th>Akce</th>
+      </tr>
+    </thead>
+    <tbody>{{rows}}</tbody>
+  </table>
+</div>

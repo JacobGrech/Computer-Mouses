@@ -1,0 +1,36 @@
+<h1>🖱️ {{brand}} {{model}}</h1>
+
+<div class="card">
+  <div class="detail-grid">
+    <div class="detail-item">
+      <div class="label">ID</div>
+      <div class="value">#{{id}}</div>
+    </div>
+    <div class="detail-item">
+      <div class="label">Značka</div>
+      <div class="value">{{brand}}</div>
+    </div>
+    <div class="detail-item">
+      <div class="label">Model</div>
+      <div class="value">{{model}}</div>
+    </div>
+    <div class="detail-item">
+      <div class="label">Typ</div>
+      <div class="value"><span class="badge {{badgeClass}}">{{type}}</span></div>
+    </div>
+    <div class="detail-item">
+      <div class="label">Maximální DPI</div>
+      <div class="value">{{dpi}} DPI</div>
+    </div>
+    <div class="detail-item">
+      <div class="label">Cena</div>
+      <div class="value">{{price}} Kč</div>
+    </div>
+  </div>
+
+  <div class="form-footer" style="margin-top:1.5rem">
+    <a class="btn btn-edit" href="/edit/{{id}}">✏️ Upravit</a>
+    <button class="btn btn-delete" data-delete-id="{{id}}">🗑️ Smazat</button>
+    <a class="btn btn-secondary" href="/">← Zpět na seznam</a>
+  </div>
+</div>
